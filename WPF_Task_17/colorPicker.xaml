@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="WPF_Task_17.ColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Task_17"
+             mc:Ignorable="d">
+
+    <Viewbox>
+        <Grid Width="400" Height="100">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Slider Minimum="0"
+                    Maximum="255"
+                    VerticalAlignment="Center"
+                    Background="Red"
+                    Value="{Binding RelativeSource={RelativeSource AncestorType=local:ColorPicker}, Path=Red}">
+            </Slider>
+            <Slider Minimum="0"
+                    Maximum="255"
+                    VerticalAlignment="Center"
+                    Grid.Row="1"
+                    Background="Green"
+                    Value="{Binding RelativeSource={RelativeSource AncestorType=local:ColorPicker}, Path=Green}"/>
+            <Slider Minimum="0"
+                    Maximum="255"
+                    VerticalAlignment="Center"
+                    Grid.Row="2"
+                    Background="Blue"
+                    Value="{Binding RelativeSource={RelativeSource AncestorType=local:ColorPicker}, Path=Blue}"/>
+            <Rectangle Grid.Row="0"
+                       Grid.Column="1"
+                       Grid.RowSpan="3"
+                       Width="80"
+                       Height="80"
+                       Stroke="Black"
+                       StrokeThickness="1"
+                       Margin="10">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{Binding RelativeSource={RelativeSource AncestorType=local:ColorPicker}, Path=Color}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </Viewbox>
+</UserControl>
